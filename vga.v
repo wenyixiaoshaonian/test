@@ -1,4 +1,4 @@
-module vga(clk,hsync,vsync,rgb_r,rgb_g,rgb_b,CLK,VGA_SYNC,VGA_BLANK);
+module vga(clk,hsync,vsync,rgb_r,rgb_g,rgb_b,CLK,VGA_SYNC,VGA_BLANK);//123445
      input               clk;
 	  output   reg        hsync;
 	  output   reg        vsync;
