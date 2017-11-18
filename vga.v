@@ -12,7 +12,7 @@ module vga(clk,hsync,vsync,rgb_r,rgb_g,rgb_b,CLK,VGA_SYNC,VGA_BLANK);
 	  
 	  reg       [9:0]  x_cnt;
 	  reg       [9:0]  y_cnt;
-	  reg              valid;
+	  reg              valid; 
 	  wire      [9:0]  xpos; 
 	  wire      [9:0]  ypos;
      wire             a_dis;
