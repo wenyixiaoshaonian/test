@@ -17,14 +17,15 @@ module vga(clk,hsync,vsync,rgb_r,rgb_g,rgb_b,CLK,VGA_SYNC,VGA_BLANK,TD_DATA,TD_V
 	  
 	  reg       [10:0]  x_cnt;
 	  reg       [10:0]  y_cnt;
-	  reg              valid;
-	  wire      [9:0]  xpos; 
-	  wire      [9:0]  ypos;
-     wire             a_dis;
-	  wire             b_dis;
-	  wire             c_dis;
-	  wire             d_dis;
-     wire             e_rdy;
+	  reg               valid;
+	  wire      [9:0]   xpos; 
+	  wire      [9:0]   ypos;
+     wire              a_dis;
+	  wire              b_dis;
+	  wire              c_dis;
+	  wire              d_dis;
+     wire              e_rdy;
+	  reg               clk_n;
 	  assign    TD_RESET_N = 1'B1;
 	  assign    VGA_SYNC   = 1'b1;
 	  assign    vga_BLANK  = 1'B0;
@@ -40,17 +41,17 @@ module vga(clk,hsync,vsync,rgb_r,rgb_g,rgb_b,CLK,VGA_SYNC,VGA_BLANK,TD_DATA,TD_V
 	  x_cnt = 0;
 	  y_cnt = 0;
 	  end
-	  assign CLK = ~clk ;
+	  assign CLK = clk ;
 
      always @(posedge clk)
 	  begin
-	  if(x_cnt == 11'd1687) x_cnt = 11'd0;
-	  else x_cnt = x_cnt + 1'b1;
+	  if(x_cnt < 11'd1687) x_cnt = x_cnt + 1'b1;
+	  else if(x_cnt == 11'd1687 )x_cnt = 11'd0;
 	  end 
 	  always @(posedge clk)
 	  begin
-	  if(y_cnt == 11'd1065) y_cnt = 11'd0;
-	  else if (x_cnt == 11'd1687) y_cnt = y_cnt + 1;
+	  if(y_cnt < 11'd1065) y_cnt = y_cnt + 1'd1;
+	  else if(y_cnt == 11'd1065)   y_cnt = 11'd0;
 	  end	  
 	  always @(posedge clk)
 	  begin
