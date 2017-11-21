@@ -1,7 +1,7 @@
 module	vga	(	
-					 	rgb_r,
-					 	rgb_g,
-					  	rgb_b,
+					 	r1,r2,r3,r4,
+					 	g1,g2,g3,g4,
+					  	b1,b2,b3,b4,
 						hsync,
 						vsync,
 						VGA_SYNC,
@@ -11,9 +11,9 @@ module	vga	(
 						TD_VS,
 						TD_CLK,
 						reset	);
-output	reg[7:0]	rgb_r;
-output	reg[7:0]	rgb_g;
-output	reg[7:0]	rgb_b;
+output	r1,r2,r3,r4;
+output g1,g2,g3,g4;
+output b1,b2,b3,b4;
 output	reg			hsync;
 output	reg			vsync;
 output				VGA_SYNC;
@@ -27,12 +27,14 @@ input           TD_VS;
 
 reg			[10:0]	x_cnt;
 reg			[10:0]	y_cnt;
-reg         [23:0]   color;
 reg                  vaild;
 reg                  a_dis;
 reg                  b_dis;
 reg                  c_dis;
 reg                  d_dis;
+reg.                 x_dis;
+integer.                 i;
+integer.                 j;
 parameter	H_FRONT	=	16;
 parameter	H_SYNC	=	96;
 parameter	H_BACK	=	48;
@@ -50,9 +52,6 @@ parameter	V_TOTAL	=	V_FRONT+V_SYNC+V_BACK+V_ACT;
 assign	VGA_SYNC	=	1'b1;			
 assign	VGA_BLANK	=	~((x_cnt<H_BLANK)||(y_cnt<V_BLANK));
 assign	CLK	=	~TD_CLK;
-assign      color[7:0] = rgb_r;
-assign      color[15:8] = rgb_g;
-assign      color[23:16] = rgb_b;
 	  always @(posedge TD_CLK or negedge reset)
 	  begin
 	  if(!reset)
@@ -63,16 +62,18 @@ assign      color[23:16] = rgb_b;
 		end
 		else
 		begin
-	   if(a_dis) rgb_r=8'd255;
-		else      rgb_r=0;
-		if(b_dis) rgb_g=8'd255;
-		else      rgb_g=0;
-		if(c_dis) rgb_b=8'd255;
-		else      rgb_b=0;
-		if(d_dis) rgb_r=8'b11110000; 
-		else      rgb_r=0;
-		/*if(vaild) rgb_r =8'd255;
-		else      rgb_r=0;*/
+	   if(a_dis) r1=1
+		else      r1=0;
+		if(b_dis) g1=1;
+		else      g1=0;
+		if(c_dis) b1=1;
+		else      b1=0;
+		if(d_dis) r2=1; 
+		else      r2=0;
+		if(vaild) g2 =1;
+		else      g2=0;
+       if(x_cnt) b2=1;
+       else      b2=0;
 	   end
 		end
 
@@ -119,12 +120,32 @@ assign      color[23:16] = rgb_b;
      vaild <= 0;
     else
 	 begin
-     vaild <= ( ( x_cnt > 11'd430 ) && (x_cnt < 11'd530)&&
-     (y_cnt > 11'd240)&& ( y_cnt < 11'd340) );
+     vaild <= (  (x_cnt > 11'd430)&& (x_cnt < 11'd530)&&(y_cnt > 11'd240)&&(y_cnt < 11'd340));
 	  a_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd740)&&(y_cnt > 11'd90 )&&(y_cnt < 11'd140));
 	  b_dis <= (  (x_cnt > 11'd690)&& (x_cnt < 11'd740)&&(y_cnt > 11'd140)&&(y_cnt < 11'd490));
 	  c_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd690)&&(y_cnt > 11'd440)&&(y_cnt < 11'd490));
 	  d_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd300)&&(y_cnt > 11'd140)&&(y_cnt < 11'd440));
 	 end
+     always @(posedge CLK or negedge reset)
+     begin
+     if(!reset)
+     i = 300;
+     else
+     for(i=300;i<690;i=i+1)
+     end
+     always @(posedge CLK or negedge reset)
+     begin
+     if(!reset)
+     j = 300;
+     else
+     for(j=340;j<440;j=j+1)
+     end
+     always @(posedge CLK or negedge reset)
+     begin
+     if(!reset)
+     x_cnt = 0;
+     else
+      x_dis <= ( (x_cnt >i)&&(x_cnt <i+1)&&(y_cnt >j)&&(y_cnt <j+1);
+      end
 	  endmodule
 	  
