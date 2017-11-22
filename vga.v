@@ -10,21 +10,22 @@ module	vga	(
                   TD_HS,
 						TD_VS,
 						TD_CLK,
+						clk_n,
 						reset	);
-output	r1,r2,r3,r4;
-output g1,g2,g3,g4;
-output b1,b2,b3,b4;
+output   reg   r1,r2,r3,r4;
+output   reg   g1,g2,g3,g4;
+output   reg   b1,b2,b3,b4;
 output	reg			hsync;
 output	reg			vsync;
 output				VGA_SYNC;
 output				VGA_BLANK;
-output				CLK;
+output	reg		CLK;
 
 input				TD_CLK;
 input				reset;	
 input           TD_HS;
 input           TD_VS;
-
+input           clk_n;
 reg			[10:0]	x_cnt;
 reg			[10:0]	y_cnt;
 reg                  vaild;
@@ -32,9 +33,11 @@ reg                  a_dis;
 reg                  b_dis;
 reg                  c_dis;
 reg                  d_dis;
-reg.                 x_dis;
-integer.                 i;
-integer.                 j;
+reg                  x_dis;
+reg                      x;
+reg                      y;
+reg                      i;
+integer                  j;
 parameter	H_FRONT	=	16;
 parameter	H_SYNC	=	96;
 parameter	H_BACK	=	48;
@@ -51,18 +54,21 @@ parameter	V_TOTAL	=	V_FRONT+V_SYNC+V_BACK+V_ACT;
 
 assign	VGA_SYNC	=	1'b1;			
 assign	VGA_BLANK	=	~((x_cnt<H_BLANK)||(y_cnt<V_BLANK));
-assign	CLK	=	~TD_CLK;
-	  always @(posedge TD_CLK or negedge reset)
+     always @(posedge clk_n)
+	  begin
+      	CLK	=	~CLK;
+	  end
+	  always @(posedge CLK or negedge reset)
 	  begin
 	  if(!reset)
 	  begin
-	   rgb_r=0;
-      rgb_g=0;
-      rgb_b=0;
+	   r1=0;r2=0;r3=0;r4=0;
+      g1=0;g2=0;g3=0;g4=0;
+      b1=0;b2=0;b3=0;b4=0;
 		end
 		else
 		begin
-	   if(a_dis) r1=1
+	   if(a_dis) r1=1;
 		else      r1=0;
 		if(b_dis) g1=1;
 		else      g1=0;
@@ -70,14 +76,14 @@ assign	CLK	=	~TD_CLK;
 		else      b1=0;
 		if(d_dis) r2=1; 
 		else      r2=0;
-		if(vaild) g2 =1;
-		else      g2=0;
-       if(x_cnt) b2=1;
+		if(vaild) begin g2 =1; r3=1;end
+		else      begin g2 =0; r3=0;end
+       if(x_dis) b2=1;
        else      b2=0;
 	   end
 		end
 
-     always @(posedge TD_CLK or negedge reset)
+     always @(posedge CLK or negedge reset)
 	  begin
 	  if(!reset)
 	   begin
@@ -126,26 +132,34 @@ assign	CLK	=	~TD_CLK;
 	  c_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd690)&&(y_cnt > 11'd440)&&(y_cnt < 11'd490));
 	  d_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd300)&&(y_cnt > 11'd140)&&(y_cnt < 11'd440));
 	 end
-     always @(posedge CLK or negedge reset)
+   /*  always @(posedge CLK or negedge reset)
      begin
      if(!reset)
-     i = 300;
+	  begin
+     i = 0;
+	  x_dis = 0;
+	  end
      else
-     for(i=300;i<690;i=i+1)
+	  begin
+	   x_dis = ( (x_cnt >300+i)&&(x_cnt <i+301)&&(y_cnt > i+340)&&(y_cnt <y+341));
+		i = i+1;
+		if(i==440) i = 0;
+	  end
      end
-     always @(posedge CLK or negedge reset)
+     always @(posedge TD_CLK or negedge reset)
      begin
      if(!reset)
      j = 300;
      else
      for(j=340;j<440;j=j+1)
-     end
-     always @(posedge CLK or negedge reset)
+	  y = j;
+     end  
+     always @(posedge TD_CLK or negedge reset)
      begin
      if(!reset)
-     x_cnt = 0;
+     x_dis = 0;
      else
-      x_dis <= ( (x_cnt >i)&&(x_cnt <i+1)&&(y_cnt >j)&&(y_cnt <j+1);
-      end
+      x_dis = ( (x_cnt >x)&&(x_cnt <x+1)&&(y_cnt >y)&&(y_cnt <y+1));
+      end*/
 	  endmodule
 	  
