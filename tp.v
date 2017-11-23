@@ -62,12 +62,10 @@ assign	VGA_BLANK	=	~((x_cnt<H_BLANK)||(y_cnt<V_BLANK));
 	  begin
 	  if(!reset)
 	  begin
-	   rgb_r=0;
-		rgb_g=0;
-		rgb_b=0;
+	   addr=0;
 		end
 		else
-		begin
+		 begin
 	  /* if(a_dis) r1=1;
 		else      r1=0;
 		if(b_dis) g1=1;
@@ -76,9 +74,18 @@ assign	VGA_BLANK	=	~((x_cnt<H_BLANK)||(y_cnt<V_BLANK));
 		else      b1=0;
 		if(d_dis) r2=1; 
 		else      r2=0;*/
-		if(vaild) addr <= (y_cnt-90)*128+(x_cnt-240);
-		else      addr = 0;
-	   end
+		 if(vaild)
+	     begin
+		  // if(addr == 24448)
+		  //   addr = 0;
+		  // else
+		     begin
+   	       addr = (y_cnt-195)*128+(x_cnt-416);
+		     //  addr = addr+1;
+		     end
+		  end
+		 else      addr = 0;
+	    end
 		end
 
      always @(posedge CLK or negedge reset)
@@ -124,7 +131,7 @@ assign	VGA_BLANK	=	~((x_cnt<H_BLANK)||(y_cnt<V_BLANK));
      vaild <= 0;
     else
 	 begin
-     vaild <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd740)&&(y_cnt > 11'd90)&&(y_cnt < 11'd490));
+     vaild <= (  (x_cnt > 11'd416)&& (x_cnt < 11'd544)&&(y_cnt > 11'd195)&&(y_cnt < 11'd385));
 	  a_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd740)&&(y_cnt > 11'd90 )&&(y_cnt < 11'd140));
 	  b_dis <= (  (x_cnt > 11'd690)&& (x_cnt < 11'd740)&&(y_cnt > 11'd140)&&(y_cnt < 11'd490));
 	  c_dis <= (  (x_cnt > 11'd250)&& (x_cnt < 11'd690)&&(y_cnt > 11'd440)&&(y_cnt < 11'd490));
