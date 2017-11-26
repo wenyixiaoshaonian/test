@@ -1,0 +1,12 @@
+module dispaly(
+           input                clk,
+			  input                s_rst_n,
+			  input  wire  [27:0]  rd,
+			  output wire  [6:0]   h1,
+			  output wire  [6:0]   h2,
+			  output wire  [6:0]   h3,
+			  output wire  [6:0]   h3
+			  );
+			  
+			  
+    

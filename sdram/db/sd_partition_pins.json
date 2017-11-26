@@ -1,0 +1,197 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sdram_clk",
+					"strict" : false
+				},
+				{
+					"name" : "CS",
+					"strict" : false
+				},
+				{
+					"name" : "CKE",
+					"strict" : false
+				},
+				{
+					"name" : "addr[10]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "h1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "h2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "h3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[6]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "h4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reg[2]",
+					"strict" : false
+				},
+				{
+					"name" : "reg[1]",
+					"strict" : false
+				},
+				{
+					"name" : "reg[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DQ[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DQ[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DQ[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sclk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "key_read",
+					"strict" : false
+				},
+				{
+					"name" : "key_begin",
+					"strict" : false
+				},
+				{
+					"name" : "key_write",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

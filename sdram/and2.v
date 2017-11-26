@@ -1,0 +1,19 @@
+module and2 (
+    output reg out,
+	 input   in1,
+	 input   in2 
+
+
+	 	 
+);
+	 always@* begin
+	 if(in1>in2)
+	 out = in1;
+	 else if(in1<in2)
+	 out = in2;
+	 else if(in1 == in2)
+	 out = 0;
+	 end
+	 
+	 endmodule
+	 

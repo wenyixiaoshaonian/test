@@ -1,0 +1,19 @@
+module ad3 (
+    output reg [3:0]  out,
+	 input      [3:0]  in1,
+	 input      [3:0]  in2 
+
+
+	 	 
+);
+	 always@* begin
+	 if(in1>in2)
+	 out = in1;
+	 else if(in1<in2)
+	 out = in2;
+	 else if(in1 == in2)
+	 out = 0;
+	 end
+	 
+	 endmodule
+	 
