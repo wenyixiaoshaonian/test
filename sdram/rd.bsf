@@ -111,8 +111,8 @@ agreement for further details.
 	(port
 		(pt 224 112)
 		(output)
-		(text "out[2..0]" (rect 0 0 31 12)(font "Arial" ))
-		(text "out[2..0]" (rect 172 107 203 119)(font "Arial" ))
+		(text "out[5..0]" (rect 0 0 31 12)(font "Arial" ))
+		(text "out[5..0]" (rect 172 107 203 119)(font "Arial" ))
 		(line (pt 224 112)(pt 208 112)(line_width 3))
 	)
 	(parameter

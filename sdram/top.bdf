@@ -57,7 +57,7 @@ agreement for further details.
 	(input)
 	(rect 8 -232 176 -216)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "sclk" (rect 5 0 26 12)(font "Arial" ))
+	(text "sclk" (rect 5 0 25 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -141,7 +141,7 @@ agreement for further details.
 	(output)
 	(rect -408 752 -232 768)
 	(text "OUTPUT" (rect 137 6 175 16)(font "Arial" (font_size 6)))
-	(text "addr[11..0]" (rect 5 4 59 16)(font "Arial" ))
+	(text "addr[11..0]" (rect 5 4 58 16)(font "Arial" ))
 	(pt 176 8)
 	(drawing
 		(line (pt 176 8)(pt 124 8))
@@ -175,7 +175,7 @@ agreement for further details.
 	(output)
 	(rect 112 -56 128 120)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "CS" (rect 0 5 12 21)(font "Arial" )(vertical))
+	(text "CS" (rect 0 5 12 20)(font "Arial" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -192,7 +192,7 @@ agreement for further details.
 	(output)
 	(rect 88 -56 104 120)
 	(text "OUTPUT" (rect 0 137 10 175)(font "Arial" (font_size 6))(vertical))
-	(text "CKE" (rect 1 5 13 28)(font "Arial" )(vertical))
+	(text "CKE" (rect 1 5 13 27)(font "Arial" )(vertical))
 	(pt 8 176)
 	(drawing
 		(line (pt 8 176)(pt 8 124))
@@ -800,216 +800,6 @@ agreement for further details.
 	(annotation_block (parameter)(rect 280 392 288 400))
 )
 (symbol
-	(rect 944 368 1120 592)
-	(text "rd" (rect 164 5 176 14)(font "Arial" )(vertical))
-	(text "inst" (rect 4 8 16 25)(font "Arial" )(vertical))
-	(port
-		(pt 144 0)
-		(input)
-		(text "sclk" (rect 0 0 20 12)(font "Arial" ))
-		(text "sclk" (rect 137 21 149 41)(font "Arial" )(vertical))
-		(line (pt 144 0)(pt 144 16))
-	)
-	(port
-		(pt 128 0)
-		(input)
-		(text "s_rst_n" (rect 0 0 36 12)(font "Arial" ))
-		(text "s_rst_n" (rect 121 21 133 57)(font "Arial" )(vertical))
-		(line (pt 128 0)(pt 128 16))
-	)
-	(port
-		(pt 112 0)
-		(input)
-		(text "rd_en" (rect 0 0 27 12)(font "Arial" ))
-		(text "rd_en" (rect 105 21 117 48)(font "Arial" )(vertical))
-		(line (pt 112 0)(pt 112 16))
-	)
-	(port
-		(pt 96 0)
-		(input)
-		(text "state[4..0]" (rect 0 0 50 12)(font "Arial" ))
-		(text "state[4..0]" (rect 89 21 101 71)(font "Arial" )(vertical))
-		(line (pt 96 0)(pt 96 16)(line_width 3))
-	)
-	(port
-		(pt 80 0)
-		(input)
-		(text "ref_req" (rect 0 0 35 12)(font "Arial" ))
-		(text "ref_req" (rect 73 21 85 56)(font "Arial" )(vertical))
-		(line (pt 80 0)(pt 80 16))
-	)
-	(port
-		(pt 64 0)
-		(input)
-		(text "key_rd" (rect 0 0 34 12)(font "Arial" ))
-		(text "key_rd" (rect 57 21 69 55)(font "Arial" )(vertical))
-		(line (pt 64 0)(pt 64 16))
-	)
-	(port
-		(pt 48 0)
-		(input)
-		(text "rd_dq[15..0]" (rect 0 0 59 12)(font "Arial" ))
-		(text "rd_dq[15..0]" (rect 41 21 53 80)(font "Arial" )(vertical))
-		(line (pt 48 0)(pt 48 16)(line_width 3))
-	)
-	(port
-		(pt 144 224)
-		(output)
-		(text "sdram_cmd[3..0]" (rect 0 0 83 12)(font "Arial" ))
-		(text "sdram_cmd[3..0]" (rect 137 133 149 216)(font "Arial" )(vertical))
-		(line (pt 144 224)(pt 144 208)(line_width 3))
-	)
-	(port
-		(pt 128 224)
-		(output)
-		(text "sdram_addr[11..0]" (rect 0 0 89 12)(font "Arial" ))
-		(text "sdram_addr[11..0]" (rect 121 128 133 217)(font "Arial" )(vertical))
-		(line (pt 128 224)(pt 128 208)(line_width 3))
-	)
-	(port
-		(pt 112 224)
-		(output)
-		(text "sdram_bank[1..0]" (rect 0 0 86 12)(font "Arial" ))
-		(text "sdram_bank[1..0]" (rect 105 131 117 217)(font "Arial" )(vertical))
-		(line (pt 112 224)(pt 112 208)(line_width 3))
-	)
-	(port
-		(pt 96 224)
-		(output)
-		(text "rd_req" (rect 0 0 30 12)(font "Arial" ))
-		(text "rd_req" (rect 89 178 101 208)(font "Arial" )(vertical))
-		(line (pt 96 224)(pt 96 208))
-	)
-	(port
-		(pt 80 224)
-		(output)
-		(text "flag_rd_end" (rect 0 0 57 12)(font "Arial" ))
-		(text "flag_rd_end" (rect 73 155 85 212)(font "Arial" )(vertical))
-		(line (pt 80 224)(pt 80 208))
-	)
-	(port
-		(pt 64 224)
-		(output)
-		(text "out[2..0]" (rect 0 0 41 12)(font "Arial" ))
-		(text "out[2..0]" (rect 57 169 69 210)(font "Arial" )(vertical))
-		(line (pt 64 224)(pt 64 208)(line_width 3))
-	)
-	(parameter
-		"NOP"
-		"0111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"PRE"
-		"0010"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"ACT"
-		"0011"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"RD"
-		"0101"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"CMD_END"
-		"1100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"COL_END"
-		"111111100"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"ROW_END"
-		"111111111111"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"AREF"
-		"00000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(parameter
-		"READ"
-		"01000"
-		""
-		(type "PARAMETER_UNSIGNED_BIN")	)
-	(drawing
-		(rectangle (rect 16 16 160 208))
-	)
-	(rotate270)
-	(annotation_block (parameter)(rect 1160 336 1168 376))
-)
-(symbol
-	(rect 1264 512 1424 624)
-	(text "dispaly" (rect 5 0 40 12)(font "Arial" ))
-	(text "inst10" (rect 8 96 36 113)(font "Intel Clear" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "key" (rect 0 0 18 12)(font "Arial" ))
-		(text "key" (rect 21 27 39 39)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "clk" (rect 0 0 14 12)(font "Arial" ))
-		(text "clk" (rect 21 43 35 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "s_rst_n" (rect 0 0 36 12)(font "Arial" ))
-		(text "s_rst_n" (rect 21 59 57 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 0 80)
-		(input)
-		(text "rd[2..0]" (rect 0 0 35 12)(font "Arial" ))
-		(text "rd[2..0]" (rect 21 75 56 87)(font "Arial" ))
-		(line (pt 0 80)(pt 16 80)(line_width 3))
-	)
-	(port
-		(pt 160 32)
-		(output)
-		(text "h1[6..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "h1[6..0]" (rect 108 27 145 39)(font "Arial" ))
-		(line (pt 160 32)(pt 144 32)(line_width 3))
-	)
-	(port
-		(pt 160 48)
-		(output)
-		(text "h2[6..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "h2[6..0]" (rect 108 43 145 55)(font "Arial" ))
-		(line (pt 160 48)(pt 144 48)(line_width 3))
-	)
-	(port
-		(pt 160 64)
-		(output)
-		(text "h3[6..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "h3[6..0]" (rect 108 59 145 71)(font "Arial" ))
-		(line (pt 160 64)(pt 144 64)(line_width 3))
-	)
-	(port
-		(pt 160 80)
-		(output)
-		(text "h4[6..0]" (rect 0 0 37 12)(font "Arial" ))
-		(text "h4[6..0]" (rect 108 75 145 87)(font "Arial" ))
-		(line (pt 160 80)(pt 144 80)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 144 96))
-	)
-)
-(symbol
 	(rect 136 -88 312 120)
 	(text "init" (rect 164 5 176 19)(font "Arial" )(vertical))
 	(text "inst21" (rect 5 7 17 36)(font "Arial" )(vertical))
@@ -1111,6 +901,216 @@ agreement for further details.
 	)
 	(rotate270)
 	(annotation_block (parameter)(rect 328 -104 336 -72))
+)
+(symbol
+	(rect 1264 512 1424 624)
+	(text "dispaly" (rect 5 0 40 12)(font "Arial" ))
+	(text "inst1" (rect 8 96 30 113)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "key" (rect 0 0 18 12)(font "Arial" ))
+		(text "key" (rect 21 27 39 39)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "clk" (rect 0 0 14 12)(font "Arial" ))
+		(text "clk" (rect 21 43 35 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "s_rst_n" (rect 0 0 36 12)(font "Arial" ))
+		(text "s_rst_n" (rect 21 59 57 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "rd[5..0]" (rect 0 0 35 12)(font "Arial" ))
+		(text "rd[5..0]" (rect 21 75 56 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "h1[6..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "h1[6..0]" (rect 108 27 145 39)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32)(line_width 3))
+	)
+	(port
+		(pt 160 48)
+		(output)
+		(text "h2[6..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "h2[6..0]" (rect 108 43 145 55)(font "Arial" ))
+		(line (pt 160 48)(pt 144 48)(line_width 3))
+	)
+	(port
+		(pt 160 64)
+		(output)
+		(text "h3[6..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "h3[6..0]" (rect 108 59 145 71)(font "Arial" ))
+		(line (pt 160 64)(pt 144 64)(line_width 3))
+	)
+	(port
+		(pt 160 80)
+		(output)
+		(text "h4[6..0]" (rect 0 0 37 12)(font "Arial" ))
+		(text "h4[6..0]" (rect 108 75 145 87)(font "Arial" ))
+		(line (pt 160 80)(pt 144 80)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 96))
+	)
+)
+(symbol
+	(rect 944 368 1120 592)
+	(text "rd" (rect 164 5 176 14)(font "Arial" )(vertical))
+	(text "inst4" (rect -1 8 16 30)(font "Intel Clear" )(vertical))
+	(port
+		(pt 144 0)
+		(input)
+		(text "sclk" (rect 0 0 20 12)(font "Arial" ))
+		(text "sclk" (rect 137 21 149 41)(font "Arial" )(vertical))
+		(line (pt 144 0)(pt 144 16))
+	)
+	(port
+		(pt 128 0)
+		(input)
+		(text "s_rst_n" (rect 0 0 36 12)(font "Arial" ))
+		(text "s_rst_n" (rect 121 21 133 57)(font "Arial" )(vertical))
+		(line (pt 128 0)(pt 128 16))
+	)
+	(port
+		(pt 112 0)
+		(input)
+		(text "rd_en" (rect 0 0 27 12)(font "Arial" ))
+		(text "rd_en" (rect 105 21 117 48)(font "Arial" )(vertical))
+		(line (pt 112 0)(pt 112 16))
+	)
+	(port
+		(pt 96 0)
+		(input)
+		(text "state[4..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "state[4..0]" (rect 89 21 101 71)(font "Arial" )(vertical))
+		(line (pt 96 0)(pt 96 16)(line_width 3))
+	)
+	(port
+		(pt 80 0)
+		(input)
+		(text "ref_req" (rect 0 0 35 12)(font "Arial" ))
+		(text "ref_req" (rect 73 21 85 56)(font "Arial" )(vertical))
+		(line (pt 80 0)(pt 80 16))
+	)
+	(port
+		(pt 64 0)
+		(input)
+		(text "key_rd" (rect 0 0 34 12)(font "Arial" ))
+		(text "key_rd" (rect 57 21 69 55)(font "Arial" )(vertical))
+		(line (pt 64 0)(pt 64 16))
+	)
+	(port
+		(pt 48 0)
+		(input)
+		(text "rd_dq[15..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "rd_dq[15..0]" (rect 41 21 53 80)(font "Arial" )(vertical))
+		(line (pt 48 0)(pt 48 16)(line_width 3))
+	)
+	(port
+		(pt 144 224)
+		(output)
+		(text "sdram_cmd[3..0]" (rect 0 0 83 12)(font "Arial" ))
+		(text "sdram_cmd[3..0]" (rect 137 133 149 216)(font "Arial" )(vertical))
+		(line (pt 144 224)(pt 144 208)(line_width 3))
+	)
+	(port
+		(pt 128 224)
+		(output)
+		(text "sdram_addr[11..0]" (rect 0 0 89 12)(font "Arial" ))
+		(text "sdram_addr[11..0]" (rect 121 128 133 217)(font "Arial" )(vertical))
+		(line (pt 128 224)(pt 128 208)(line_width 3))
+	)
+	(port
+		(pt 112 224)
+		(output)
+		(text "sdram_bank[1..0]" (rect 0 0 86 12)(font "Arial" ))
+		(text "sdram_bank[1..0]" (rect 105 131 117 217)(font "Arial" )(vertical))
+		(line (pt 112 224)(pt 112 208)(line_width 3))
+	)
+	(port
+		(pt 96 224)
+		(output)
+		(text "rd_req" (rect 0 0 30 12)(font "Arial" ))
+		(text "rd_req" (rect 89 178 101 208)(font "Arial" )(vertical))
+		(line (pt 96 224)(pt 96 208))
+	)
+	(port
+		(pt 80 224)
+		(output)
+		(text "flag_rd_end" (rect 0 0 57 12)(font "Arial" ))
+		(text "flag_rd_end" (rect 73 155 85 212)(font "Arial" )(vertical))
+		(line (pt 80 224)(pt 80 208))
+	)
+	(port
+		(pt 64 224)
+		(output)
+		(text "out[5..0]" (rect 0 0 41 12)(font "Arial" ))
+		(text "out[5..0]" (rect 57 169 69 210)(font "Arial" )(vertical))
+		(line (pt 64 224)(pt 64 208)(line_width 3))
+	)
+	(parameter
+		"NOP"
+		"0111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"PRE"
+		"0010"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"ACT"
+		"0011"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"RD"
+		"0101"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"CMD_END"
+		"1100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"COL_END"
+		"111111100"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"ROW_END"
+		"111111111111"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"AREF"
+		"00000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(parameter
+		"READ"
+		"01000"
+		""
+		(type "PARAMETER_UNSIGNED_BIN")	)
+	(drawing
+		(rectangle (rect 16 16 160 208))
+	)
+	(rotate270)
+	(annotation_block (parameter)(rect 1144 360 1152 392))
 )
 (connector
 	(pt 136 368)
@@ -1779,26 +1779,6 @@ agreement for further details.
 	(pt 1232 304)
 )
 (connector
-	(pt 1008 656)
-	(pt 1008 592)
-	(bus)
-)
-(connector
-	(pt 1008 656)
-	(pt 1248 656)
-	(bus)
-)
-(connector
-	(pt 1248 656)
-	(pt 1248 592)
-	(bus)
-)
-(connector
-	(pt 1248 592)
-	(pt 1264 592)
-	(bus)
-)
-(connector
 	(pt 1424 544)
 	(pt 1456 544)
 	(bus)
@@ -1816,6 +1796,21 @@ agreement for further details.
 (connector
 	(pt 1424 592)
 	(pt 1456 592)
+	(bus)
+)
+(connector
+	(pt 1008 592)
+	(pt 1008 720)
+	(bus)
+)
+(connector
+	(pt 1264 720)
+	(pt 1008 720)
+	(bus)
+)
+(connector
+	(pt 1264 720)
+	(pt 1264 592)
 	(bus)
 )
 (junction (pt 616 328))

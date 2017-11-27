@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sd
-Sun Nov 26 19:04:24 2017
+Mon Nov 27 15:28:22 2017
 Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
 
 
@@ -20,7 +20,7 @@ Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
  12. Inverted Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Parameter Settings for User Entity Instance: init:inst21
- 15. Parameter Settings for User Entity Instance: rd:inst
+ 15. Parameter Settings for User Entity Instance: rd:inst4
  16. Parameter Settings for User Entity Instance: arb:inst2
  17. Parameter Settings for User Entity Instance: ref:inst3
  18. Parameter Settings for User Entity Instance: wr:inst20
@@ -54,13 +54,13 @@ agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 26 19:04:24 2017       ;
+; Analysis & Synthesis Status     ; Successful - Mon Nov 27 15:28:22 2017       ;
 ; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
 ; Revision Name                   ; sd                                          ;
 ; Top-level Entity Name           ; top                                         ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 183                                         ;
+; Total registers                 ; 181                                         ;
 ; Total pins                      ; 70                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -201,25 +201,25 @@ agreement for further details.
 +---------------------------------------------+------------+
 ; Resource                                    ; Usage      ;
 +---------------------------------------------+------------+
-; Estimate of Logic utilization (ALMs needed) ; 114        ;
+; Estimate of Logic utilization (ALMs needed) ; 124        ;
 ;                                             ;            ;
-; Combinational ALUT usage for logic          ; 189        ;
+; Combinational ALUT usage for logic          ; 212        ;
 ;     -- 7 input functions                    ; 1          ;
-;     -- 6 input functions                    ; 33         ;
-;     -- 5 input functions                    ; 41         ;
-;     -- 4 input functions                    ; 27         ;
-;     -- <=3 input functions                  ; 87         ;
+;     -- 6 input functions                    ; 32         ;
+;     -- 5 input functions                    ; 44         ;
+;     -- 4 input functions                    ; 46         ;
+;     -- <=3 input functions                  ; 89         ;
 ;                                             ;            ;
-; Dedicated logic registers                   ; 183        ;
+; Dedicated logic registers                   ; 181        ;
 ;                                             ;            ;
 ; I/O pins                                    ; 70         ;
 ;                                             ;            ;
 ; Total DSP Blocks                            ; 0          ;
 ;                                             ;            ;
 ; Maximum fan-out node                        ; sclk~input ;
-; Maximum fan-out                             ; 184        ;
-; Total fan-out                               ; 1496       ;
-; Average fan-out                             ; 2.83       ;
+; Maximum fan-out                             ; 182        ;
+; Total fan-out                               ; 1592       ;
+; Average fan-out                             ; 2.90       ;
 +---------------------------------------------+------------+
 
 
@@ -228,13 +228,13 @@ agreement for further details.
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |top                       ; 189 (0)             ; 183 (0)                   ; 0                 ; 0          ; 70   ; 0            ; |top                ; top         ; work         ;
+; |top                       ; 212 (0)             ; 181 (0)                   ; 0                 ; 0          ; 70   ; 0            ; |top                ; top         ; work         ;
 ;    |ad4:inst8|             ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|ad4:inst8      ; ad4         ; work         ;
 ;    |ad4_11:inst18|         ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |top|ad4_11:inst18  ; ad4_11      ; work         ;
 ;    |arb:inst2|             ; 12 (12)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |top|arb:inst2      ; arb         ; work         ;
-;    |dispaly:inst10|        ; 15 (15)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |top|dispaly:inst10 ; dispaly     ; work         ;
+;    |dispaly:inst1|         ; 39 (39)             ; 31 (31)                   ; 0                 ; 0          ; 0    ; 0            ; |top|dispaly:inst1  ; dispaly     ; work         ;
 ;    |init:inst21|           ; 30 (30)             ; 28 (28)                   ; 0                 ; 0          ; 0    ; 0            ; |top|init:inst21    ; init        ; work         ;
-;    |rd:inst|               ; 43 (43)             ; 37 (37)                   ; 0                 ; 0          ; 0    ; 0            ; |top|rd:inst        ; rd          ; work         ;
+;    |rd:inst4|              ; 42 (42)             ; 35 (35)                   ; 0                 ; 0          ; 0    ; 0            ; |top|rd:inst4       ; rd          ; work         ;
 ;    |ref:inst3|             ; 25 (25)             ; 22 (22)                   ; 0                 ; 0          ; 0    ; 0            ; |top|ref:inst3      ; ref         ; work         ;
 ;    |wr:inst20|             ; 57 (57)             ; 57 (57)                   ; 0                 ; 0          ; 0    ; 0            ; |top|wr:inst20      ; wr          ; work         ;
 +----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
@@ -263,28 +263,36 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; wr:inst20|col_addr[0,1]                ; Stuck at GND due to stuck port data_in ;
 ; ref:inst3|cmd_reg[3]                   ; Stuck at GND due to stuck port data_in ;
 ; ref:inst3|sdram_addr[0..9,11]          ; Stuck at GND due to stuck port data_in ;
-; rd:inst|col_addr[0,1]                  ; Stuck at GND due to stuck port data_in ;
-; rd:inst|sdram_cmd[3]                   ; Stuck at GND due to stuck port data_in ;
+; rd:inst4|col_addr[0,1]                 ; Stuck at GND due to stuck port data_in ;
+; rd:inst4|sdram_cmd[3]                  ; Stuck at GND due to stuck port data_in ;
+; rd:inst4|out[3..5]                     ; Stuck at GND due to stuck port data_in ;
 ; init:inst21|sdram_addr[0,2,3,6..9,11]  ; Stuck at GND due to stuck port data_in ;
+; dispaly:inst1|n[3..5]                  ; Stuck at GND due to stuck port data_in ;
 ; init:inst21|sdram_addr[1,4]            ; Merged with init:inst21|sdram_addr[5]  ;
-; dispaly:inst10|h1[3]                   ; Merged with dispaly:inst10|h1[0]       ;
-; dispaly:inst10|h2[3]                   ; Merged with dispaly:inst10|h2[0]       ;
-; dispaly:inst10|h3[3]                   ; Merged with dispaly:inst10|h3[0]       ;
-; dispaly:inst10|h4[3]                   ; Merged with dispaly:inst10|h4[0]       ;
+; dispaly:inst1|h1[3]                    ; Merged with dispaly:inst1|h1[0]        ;
+; dispaly:inst1|h2[3]                    ; Merged with dispaly:inst1|h2[0]        ;
+; dispaly:inst1|h3[3]                    ; Merged with dispaly:inst1|h3[0]        ;
+; dispaly:inst1|h4[3]                    ; Merged with dispaly:inst1|h4[0]        ;
 ; init:inst21|cmd_reg[3]                 ; Stuck at GND due to stuck port data_in ;
-; rd:inst|sdram_addr[3..9]               ; Lost fanout                            ;
-; Total Number of Removed Registers = 53 ;                                        ;
+; rd:inst4|sdram_addr[1..9]              ; Lost fanout                            ;
+; Total Number of Removed Registers = 61 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                 ;
-+--------------------------+---------------------------+----------------------------------------------------------------------+
-; Register name            ; Reason for Removal        ; Registers Removed due to This Register                               ;
-+--------------------------+---------------------------+----------------------------------------------------------------------+
-; ref:inst3|sdram_addr[11] ; Stuck at GND              ; rd:inst|sdram_addr[9], rd:inst|sdram_addr[8], rd:inst|sdram_addr[7], ;
-;                          ; due to stuck port data_in ; rd:inst|sdram_addr[6], rd:inst|sdram_addr[5], rd:inst|sdram_addr[4]  ;
-+--------------------------+---------------------------+----------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                    ;
++--------------------------+---------------------------+-------------------------------------------------------------------------+
+; Register name            ; Reason for Removal        ; Registers Removed due to This Register                                  ;
++--------------------------+---------------------------+-------------------------------------------------------------------------+
+; ref:inst3|sdram_addr[11] ; Stuck at GND              ; rd:inst4|sdram_addr[9], rd:inst4|sdram_addr[8], rd:inst4|sdram_addr[7], ;
+;                          ; due to stuck port data_in ; rd:inst4|sdram_addr[6], rd:inst4|sdram_addr[5], rd:inst4|sdram_addr[4]  ;
+; rd:inst4|out[5]          ; Stuck at GND              ; dispaly:inst1|n[5]                                                      ;
+;                          ; due to stuck port data_in ;                                                                         ;
+; rd:inst4|out[4]          ; Stuck at GND              ; dispaly:inst1|n[4]                                                      ;
+;                          ; due to stuck port data_in ;                                                                         ;
+; rd:inst4|out[3]          ; Stuck at GND              ; dispaly:inst1|n[3]                                                      ;
+;                          ; due to stuck port data_in ;                                                                         ;
++--------------------------+---------------------------+-------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -292,10 +300,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 183   ;
+; Total registers                              ; 181   ;
 ; Number of registers using Synchronous Clear  ; 67    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 183   ;
+; Number of registers using Asynchronous Clear ; 181   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 60    ;
 ; Number of registers using Preset             ; 0     ;
@@ -311,11 +319,11 @@ Note: All latches listed above may not be present at the end of synthesis due to
 ; init:inst21|cmd_reg[2]                  ; 2       ;
 ; init:inst21|cmd_reg[1]                  ; 2       ;
 ; init:inst21|cmd_reg[0]                  ; 1       ;
-; rd:inst|sdram_cmd[0]                    ; 1       ;
-; rd:inst|sdram_cmd[2]                    ; 1       ;
+; rd:inst4|sdram_cmd[0]                   ; 1       ;
+; rd:inst4|sdram_cmd[2]                   ; 1       ;
 ; ref:inst3|cmd_reg[2]                    ; 1       ;
 ; ref:inst3|cmd_reg[0]                    ; 1       ;
-; rd:inst|sdram_cmd[1]                    ; 1       ;
+; rd:inst4|sdram_cmd[1]                   ; 1       ;
 ; ref:inst3|cmd_reg[1]                    ; 1       ;
 ; init:inst21|flag_init                   ; 5       ;
 ; arb:inst2|state[1]                      ; 11      ;
@@ -328,13 +336,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output     ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|dispaly:inst10|h4[6]      ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |top|dispaly:inst10|h1[4]      ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top|wr:inst20|col_addr[8]     ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top|rd:inst|row_addr[1]       ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |top|wr:inst20|col_addr[2]     ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top|rd:inst4|row_addr[1]      ;
 ; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |top|wr:inst20|row_addr_reg[1] ;
-; 8:1                ; 12 bits   ; 60 LEs        ; 24 LEs               ; 36 LEs                 ; Yes        ; |top|dispaly:inst10|h1[0]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top|init:inst21|cmd_reg[2]    ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 12 LEs               ; 8 LEs                  ; Yes        ; |top|dispaly:inst1|h4[4]       ;
+; 8:1                ; 3 bits    ; 15 LEs        ; 12 LEs               ; 3 LEs                  ; Yes        ; |top|dispaly:inst1|h2[4]       ;
+; 17:1               ; 4 bits    ; 44 LEs        ; 4 LEs                ; 40 LEs                 ; Yes        ; |top|dispaly:inst1|h1[1]       ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |top|dispaly:inst1|h1[4]       ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |top|init:inst21|cmd_reg[0]    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------+
 
 
@@ -353,21 +362,21 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------+
-; Parameter Settings for User Entity Instance: rd:inst ;
-+----------------+--------------+----------------------+
-; Parameter Name ; Value        ; Type                 ;
-+----------------+--------------+----------------------+
-; NOP            ; 0111         ; Unsigned Binary      ;
-; PRE            ; 0010         ; Unsigned Binary      ;
-; ACT            ; 0011         ; Unsigned Binary      ;
-; RD             ; 0101         ; Unsigned Binary      ;
-; CMD_END        ; 1100         ; Unsigned Binary      ;
-; COL_END        ; 111111100    ; Unsigned Binary      ;
-; ROW_END        ; 111111111111 ; Unsigned Binary      ;
-; AREF           ; 00000        ; Unsigned Binary      ;
-; READ           ; 01000        ; Unsigned Binary      ;
-+----------------+--------------+----------------------+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: rd:inst4 ;
++----------------+--------------+-----------------------+
+; Parameter Name ; Value        ; Type                  ;
++----------------+--------------+-----------------------+
+; NOP            ; 0111         ; Unsigned Binary       ;
+; PRE            ; 0010         ; Unsigned Binary       ;
+; ACT            ; 0011         ; Unsigned Binary       ;
+; RD             ; 0101         ; Unsigned Binary       ;
+; CMD_END        ; 1100         ; Unsigned Binary       ;
+; COL_END        ; 111111100    ; Unsigned Binary       ;
+; ROW_END        ; 111111111111 ; Unsigned Binary       ;
+; AREF           ; 00000        ; Unsigned Binary       ;
+; READ           ; 01000        ; Unsigned Binary       ;
++----------------+--------------+-----------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -424,30 +433,30 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 183                         ;
-;     CLR               ; 87                          ;
+; arriav_ff             ; 181                         ;
+;     CLR               ; 85                          ;
 ;     CLR SCLR          ; 36                          ;
 ;     ENA CLR           ; 29                          ;
 ;     ENA CLR SCLR      ; 31                          ;
 ; arriav_io_obuf        ; 16                          ;
-; arriav_lcell_comb     ; 194                         ;
+; arriav_lcell_comb     ; 217                         ;
 ;     arith             ; 62                          ;
 ;         1 data inputs ; 59                          ;
 ;         2 data inputs ; 3                           ;
 ;     extend            ; 1                           ;
 ;         7 data inputs ; 1                           ;
-;     normal            ; 131                         ;
+;     normal            ; 154                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 8                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 14                          ;
-;         4 data inputs ; 27                          ;
-;         5 data inputs ; 41                          ;
-;         6 data inputs ; 33                          ;
+;         1 data inputs ; 4                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 19                          ;
+;         4 data inputs ; 46                          ;
+;         5 data inputs ; 44                          ;
+;         6 data inputs ; 32                          ;
 ; boundary_port         ; 70                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 2.30                        ;
-; Average LUT depth     ; 1.47                        ;
+; Average LUT depth     ; 1.51                        ;
 +-----------------------+-----------------------------+
 
 
@@ -456,7 +465,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -466,7 +475,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
-    Info: Processing started: Sun Nov 26 19:04:06 2017
+    Info: Processing started: Mon Nov 27 15:28:05 2017
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sd -c sd
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -490,18 +499,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file ad4_11.
     Info (12023): Found entity 1: ad4_11 File: D:/FPGA/sdram/ad4_11.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file ad4_2.v
     Info (12023): Found entity 1: ad4_2 File: D:/FPGA/sdram/ad4_2.v Line: 1
-Warning (10229): Verilog HDL Expression warning at display.v(42): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 42
-Warning (10229): Verilog HDL Expression warning at display.v(44): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 44
-Warning (10229): Verilog HDL Expression warning at display.v(46): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 46
-Warning (10229): Verilog HDL Expression warning at display.v(59): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 59
-Warning (10229): Verilog HDL Expression warning at display.v(61): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 61
-Warning (10229): Verilog HDL Expression warning at display.v(63): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 63
-Warning (10229): Verilog HDL Expression warning at display.v(76): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 76
-Warning (10229): Verilog HDL Expression warning at display.v(78): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 78
-Warning (10229): Verilog HDL Expression warning at display.v(80): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 80
-Warning (10229): Verilog HDL Expression warning at display.v(93): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 93
-Warning (10229): Verilog HDL Expression warning at display.v(95): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 95
-Warning (10229): Verilog HDL Expression warning at display.v(97): truncated literal to match 2 bits File: D:/FPGA/sdram/display.v Line: 97
 Info (12021): Found 1 design units, including 1 entities, in source file display.v
     Info (12023): Found entity 1: dispaly File: D:/FPGA/sdram/display.v Line: 1
 Info (12127): Elaborating entity "top" for the top level hierarchy
@@ -515,12 +512,10 @@ Warning (10230): Verilog HDL assignment warning at ad4_11.v(18): truncated value
 Warning (10230): Verilog HDL assignment warning at ad4_11.v(21): truncated value with size 12 to match size of target (1) File: D:/FPGA/sdram/ad4_11.v Line: 21
 Warning (10240): Verilog HDL Always Construct warning at ad4_11.v(16): inferring latch(es) for variable "a", which holds its previous value in one or more paths through the always construct File: D:/FPGA/sdram/ad4_11.v Line: 16
 Info (10041): Inferred latch for "a" at ad4_11.v(18) File: D:/FPGA/sdram/ad4_11.v Line: 18
-Info (12128): Elaborating entity "rd" for hierarchy "rd:inst"
-Warning (10240): Verilog HDL Always Construct warning at rd.v(112): inferring latch(es) for variable "sdram_bank", which holds its previous value in one or more paths through the always construct File: D:/FPGA/sdram/rd.v Line: 112
-Warning (10230): Verilog HDL assignment warning at rd.v(120): truncated value with size 12 to match size of target (3) File: D:/FPGA/sdram/rd.v Line: 120
-Warning (10230): Verilog HDL assignment warning at rd.v(122): truncated value with size 12 to match size of target (3) File: D:/FPGA/sdram/rd.v Line: 122
-Info (10041): Inferred latch for "sdram_bank[0]" at rd.v(112) File: D:/FPGA/sdram/rd.v Line: 112
-Info (10041): Inferred latch for "sdram_bank[1]" at rd.v(112) File: D:/FPGA/sdram/rd.v Line: 112
+Info (12128): Elaborating entity "rd" for hierarchy "rd:inst4"
+Warning (10240): Verilog HDL Always Construct warning at rd.v(113): inferring latch(es) for variable "sdram_bank", which holds its previous value in one or more paths through the always construct File: D:/FPGA/sdram/rd.v Line: 113
+Info (10041): Inferred latch for "sdram_bank[0]" at rd.v(113) File: D:/FPGA/sdram/rd.v Line: 113
+Info (10041): Inferred latch for "sdram_bank[1]" at rd.v(113) File: D:/FPGA/sdram/rd.v Line: 113
 Info (12128): Elaborating entity "arb" for hierarchy "arb:inst2"
 Info (12128): Elaborating entity "ref" for hierarchy "ref:inst3"
 Warning (10240): Verilog HDL Always Construct warning at ref.v(92): inferring latch(es) for variable "sdram_bank", which holds its previous value in one or more paths through the always construct File: D:/FPGA/sdram/ref.v Line: 92
@@ -536,19 +531,7 @@ Warning (10230): Verilog HDL assignment warning at ad4_2.v(18): truncated value 
 Warning (10230): Verilog HDL assignment warning at ad4_2.v(21): truncated value with size 2 to match size of target (1) File: D:/FPGA/sdram/ad4_2.v Line: 21
 Warning (10240): Verilog HDL Always Construct warning at ad4_2.v(16): inferring latch(es) for variable "a", which holds its previous value in one or more paths through the always construct File: D:/FPGA/sdram/ad4_2.v Line: 16
 Info (10041): Inferred latch for "a" at ad4_2.v(18) File: D:/FPGA/sdram/ad4_2.v Line: 18
-Info (12128): Elaborating entity "dispaly" for hierarchy "dispaly:inst10"
-Warning (10272): Verilog HDL Case Statement warning at display.v(42): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 42
-Warning (10272): Verilog HDL Case Statement warning at display.v(44): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 44
-Warning (10272): Verilog HDL Case Statement warning at display.v(46): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 46
-Warning (10272): Verilog HDL Case Statement warning at display.v(59): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 59
-Warning (10272): Verilog HDL Case Statement warning at display.v(61): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 61
-Warning (10272): Verilog HDL Case Statement warning at display.v(63): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 63
-Warning (10272): Verilog HDL Case Statement warning at display.v(76): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 76
-Warning (10272): Verilog HDL Case Statement warning at display.v(78): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 78
-Warning (10272): Verilog HDL Case Statement warning at display.v(80): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 80
-Warning (10272): Verilog HDL Case Statement warning at display.v(93): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 93
-Warning (10272): Verilog HDL Case Statement warning at display.v(95): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 95
-Warning (10272): Verilog HDL Case Statement warning at display.v(97): case item expression covers a value already covered by a previous case item File: D:/FPGA/sdram/display.v Line: 97
+Info (12128): Elaborating entity "dispaly" for hierarchy "dispaly:inst1"
 Info (12128): Elaborating entity "ad4" for hierarchy "ad4:inst8"
 Warning (10230): Verilog HDL assignment warning at ad4.v(17): truncated value with size 4 to match size of target (1) File: D:/FPGA/sdram/ad4.v Line: 17
 Warning (10230): Verilog HDL assignment warning at ad4.v(18): truncated value with size 4 to match size of target (1) File: D:/FPGA/sdram/ad4.v Line: 18
@@ -574,9 +557,9 @@ Warning (13032): The following tri-state nodes are fed by constants
     Warning (13033): The pin "DQ[4]" is fed by GND
     Warning (13033): The pin "DQ[3]" is fed by GND
 Warning (13012): Latch ad4_11:inst18|a has unsafe behavior File: D:/FPGA/sdram/ad4_11.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rd:inst|sdram_addr[0] File: D:/FPGA/sdram/rd.v Line: 105
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rd:inst4|sdram_addr[0] File: D:/FPGA/sdram/rd.v Line: 106
 Warning (13012): Latch ad4:inst8|a has unsafe behavior File: D:/FPGA/sdram/ad4.v Line: 11
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal rd:inst|sdram_cmd[0] File: D:/FPGA/sdram/rd.v Line: 85
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal rd:inst4|sdram_cmd[0] File: D:/FPGA/sdram/rd.v Line: 86
 Warning (14026): LATCH primitive "ad4_11:inst18|a" is permanently enabled File: D:/FPGA/sdram/ad4_11.v Line: 11
 Warning (14026): LATCH primitive "ad4:inst8|a" is permanently enabled File: D:/FPGA/sdram/ad4.v Line: 11
 Warning (13009): TRI or OPNDRN buffers permanently enabled
@@ -595,20 +578,20 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "bank[0]" is stuck at GND
     Warning (13410): Pin "reg[3]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (17049): 9 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file D:/FPGA/sdram/output_files/sd.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 303 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 306 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
     Info (21059): Implemented 49 output pins
     Info (21060): Implemented 16 bidirectional pins
-    Info (21061): Implemented 233 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 84 warnings
-    Info: Peak virtual memory: 694 megabytes
-    Info: Processing ended: Sun Nov 26 19:04:24 2017
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:42
+    Info (21061): Implemented 236 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 58 warnings
+    Info: Peak virtual memory: 700 megabytes
+    Info: Processing ended: Mon Nov 27 15:28:22 2017
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:39
 
 
 +------------------------------------------+

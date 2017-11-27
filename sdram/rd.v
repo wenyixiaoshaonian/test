@@ -12,7 +12,7 @@ module	rd(
 		output	reg	[1:0]	      sdram_bank,
 		output	reg		         rd_req,			//读请求
 		output	reg		         flag_rd_end	,	//突发读结束标志
-		output   reg   [2:0]      out
+		output   reg    [5:0]      out
 		);
 
 		parameter	     NOP    	=	4'b0111,
@@ -30,6 +30,7 @@ module	rd(
 	reg	[3:0]	     cmd_cnt;
 	reg		        flag_act;				//发送ACT命令标志（单独设立标志，便于跑高速）
 
+	//assign     out =5;
 //flag_act
 	always	@(posedge sclk or negedge s_rst_n)
 		if(s_rst_n == 1'b0)
@@ -116,9 +117,17 @@ module	rd(
 		if(s_rst_n == 1'b0)
 	    out <= 0;
 		else  case(cmd_cnt)
-	     	4'd4:
-			 out  <=  sdram_addr;
+	       4'd0:
+			 out  <=  5;
+		    4'd1:
+			 out  <=  1;
+			 4'd2:
+			 out  <=  2;
+			 4'd3:
+			 out  <=  3;
+			 
+			 
 			default:
-				out	<=	sdram_addr;
+				out	<=	0;
 		endcase	
 endmodule

@@ -1,0 +1,11 @@
+module d (
+     output out
+	      );
+			
+	reg a;
+	assign a = 3;
+	assign out <= a;
+	
+	
+endmodule
+	

@@ -1,3 +1,1 @@
 Info (10281): Verilog HDL Declaration information at init.v(15): object "CNT_200US" differs only in case from object "cnt_200us" in the same scope File: D:/FPGA/sdram/init.v Line: 15
-Warning (10268): Verilog HDL information at display.v(14): always construct contains both blocking and non-blocking assignments File: D:/FPGA/sdram/display.v Line: 14
-Warning (10268): Verilog HDL information at display.v(23): always construct contains both blocking and non-blocking assignments File: D:/FPGA/sdram/display.v Line: 23
